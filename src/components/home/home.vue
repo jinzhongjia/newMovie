@@ -12,7 +12,7 @@ interface HomeMovie {
 }
 
 const dataItems: Ref<HomeMovie[]> = ref([]);
-get_json(MainCategory_url, {}, (res: MainClass[]) => {
+get_json(MainCategory_url, {}, async (res: MainClass[]) => {
   for (const ele of res) {
     let tmp: HomeMovie = {
       category_id: ele.id,
@@ -20,7 +20,7 @@ get_json(MainCategory_url, {}, (res: MainClass[]) => {
       movies: [],
     };
 
-    get_post_json(
+    await get_post_json(
       Category_url + "/" + ele.id,
       {
         pg: 1,
@@ -28,7 +28,6 @@ get_json(MainCategory_url, {}, (res: MainClass[]) => {
       },
       (res: CategoryInfo) => {
         tmp.movies = res.movies;
-        console.log("到达这里", res.movies);
         dataItems.value.push(tmp);
       }
     );

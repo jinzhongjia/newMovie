@@ -19,8 +19,12 @@ function get_img(url: string, callback: (param: string) => void) {
     });
 }
 
-function get_json(url: string, param: object, callback: (res: any) => void) {
-  fetch(url + "?" + qs.stringify(param), {
+async function get_json(
+  url: string,
+  param: object,
+  callback: (res: any) => void
+) {
+  return fetch(url + "?" + qs.stringify(param), {
     method: "GET",
     mode: "cors",
   })
@@ -36,12 +40,12 @@ function get_json(url: string, param: object, callback: (res: any) => void) {
     });
 }
 
-function get_post_json(
+async function get_post_json(
   url: string,
   param: object,
   callback: (res: any) => void
 ) {
-  fetch(url, {
+  return fetch(url, {
     method: "POST",
     mode: "cors",
     body: qs.stringify(param),
