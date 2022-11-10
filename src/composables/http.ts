@@ -1,3 +1,4 @@
+import qs from "qs";
 function get_img(url: string, callback: (param: string) => void) {
   fetch(url, {
     method: "GET",
@@ -18,4 +19,21 @@ function get_img(url: string, callback: (param: string) => void) {
     });
 }
 
-export { get_img };
+function get_json(url: string, param: object, callback: (res: any) => void) {
+  fetch(url + "?" + qs.stringify(param), {
+    method: "GET",
+    mode: "cors",
+  })
+    .then((res: Response) => {
+      if (res.ok) {
+        res.json().then((json: object) => {
+          callback(json);
+        });
+      }
+    })
+    .catch((err) => {
+      console.log("There has benn a problem with fetch", err);
+    });
+}
+
+export { get_img, get_json };
