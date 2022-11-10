@@ -5,7 +5,10 @@
 
 <template>
   <n-scrollbar style="max-height: 100vh">
-    <home />
+    <headed />
+    <Divider height="10px" />
+
+    <router-view />
   </n-scrollbar>
 </template>
 
