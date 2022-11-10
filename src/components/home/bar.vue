@@ -14,7 +14,7 @@ const Icon = () =>
       size: 35,
       color: get_color(),
     },
-    h(get_icon())
+    () => h(get_icon())
   );
 </script>
 <template>
