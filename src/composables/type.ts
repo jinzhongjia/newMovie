@@ -8,4 +8,19 @@ interface MainClass {
   name: string;
 }
 
-export type { ClassItem, MainClass };
+interface Movie {
+  id: number;
+  name: string;
+  pic: string;
+  actor: string;
+  director: string;
+  duration: string;
+  description: string;
+}
+
+interface CategoryInfo {
+  movies: Movie[];
+  pgCount: number;
+}
+
+export type { ClassItem, MainClass, CategoryInfo, Movie };
