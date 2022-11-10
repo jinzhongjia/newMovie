@@ -6,22 +6,22 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: "/",
     name: "home",
-    component: () => import("@views/components/home/home.vue"),
+    component: () => import("@components/home/home.vue"),
   },
   {
     path: "/Category",
     name: "category",
-    component: () => import("@views/components/category/category.vue"),
+    component: () => import("@components/category/category.vue"),
   },
   {
     path: "/Search",
     name: "search",
-    component: () => import("@views/components/search/search.vue"),
+    component: () => import("@components/search/search.vue"),
   },
   {
     path: "/Video",
     name: "video",
-    component: () => import("@views/components/video/video.vue"),
+    component: () => import("@components/video/video.vue"),
   },
 ];
 
