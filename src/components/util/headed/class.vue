@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ClassItem } from "../../composables/class";
+import { ClassItem } from "../../../composables/type";
 const props = defineProps<{
   items: ClassItem[];
 }>();
@@ -24,5 +24,9 @@ const props = defineProps<{
   display: flex;
   align-items: center;
   font-size: 1.125rem;
+}
+.class-box a {
+  text-decoration: none;
+  color: #333;
 }
 </style>

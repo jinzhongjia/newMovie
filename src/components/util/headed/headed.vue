@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ClassItem } from "../../composables/class";
+import { ClassItem } from "../../../composables/type";
 const items: ClassItem[] = [
   {
     name: "首页",
