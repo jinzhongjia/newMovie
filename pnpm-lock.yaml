@@ -1,6 +1,7 @@
 lockfileVersion: 5.4
 
 specifiers:
+  '@vicons/ionicons5': ^0.12.0
   '@vitejs/plugin-vue': ^3.2.0
   naive-ui: ^2.33.5
   pinia: ^2.0.23
@@ -17,6 +18,7 @@ dependencies:
   vue: 3.2.41
 
 devDependencies:
+  '@vicons/ionicons5': 0.12.0
   '@vitejs/plugin-vue': 3.2.0_vite@3.2.3+vue@3.2.41
   naive-ui: 2.33.5_vue@3.2.41
   pinia: 2.0.23_l7r24p6nevbtlimqmqcwa3ouhu
@@ -150,6 +152,10 @@ packages:
 
   /@types/node/17.0.45:
     resolution: {integrity: sha512-w+tIMs3rq2afQdsPJlODhoUEKzFP1ayaoyl1CcnwtIlsVe7K7bA1NGm4s3PraqTLlXnbIN84zuBlxBWo1u9BLw==}
+    dev: true
+
+  /@vicons/ionicons5/0.12.0:
+    resolution: {integrity: sha512-Iy1EUVRpX0WWxeu1VIReR1zsZLMc4fqpt223czR+Rpnrwu7pt46nbnC2ycO7ItI/uqDLJxnbcMC7FujKs9IfFA==}
     dev: true
 
   /@vitejs/plugin-vue/3.2.0_vite@3.2.3+vue@3.2.41:
