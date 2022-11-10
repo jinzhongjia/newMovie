@@ -6,8 +6,10 @@ if (import.meta.env.DEV) {
   base_url = window.location.protocol + "//" + window.location.host;
 }
 
-const mainCategory_url = base_url + "/mainCategory";
+const MainCategory_url = base_url + "/mainCategory";
 
-const proxyImg_url = base_url + "/img/proxy?";
+const ProxyImg_url = base_url + "/img/proxy?";
 
-export { base_url, mainCategory_url, proxyImg_url };
+const Category_url = base_url + "/category";
+
+export { base_url, MainCategory_url, ProxyImg_url, Category_url };
