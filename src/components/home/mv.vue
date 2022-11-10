@@ -1,14 +1,24 @@
 <script setup lang="ts">
+import qs from "qs";
 import { Ref, ref } from "vue";
 import { get_img } from "../../composables/http";
+import { proxyImg_url } from "../../composables/base";
+
+const props = defineProps<{
+  name: string;
+  url: string;
+}>();
 
 const bb: Ref<boolean> = ref(true);
 const source: Ref<string> = ref("");
 get_img(
-  "http://127.0.0.1:8000/img/proxy?url=https://img.tx-xhzy.com/upload/vod/20220928-10/712a3e7efc43a7eccc3fd697796bd34d.jpg",
+  proxyImg_url +
+    qs.stringify({
+      url: props.url,
+    }),
   (param: string) => {
-    source.value = param;
     bb.value = false;
+    source.value = param;
   }
 );
 </script>
@@ -18,7 +28,9 @@ get_img(
       <div class="post"></div>
     </n-spin>
     <div class="mv-bottom">
-      <n-ellipsis :line-clamp="1" :tooltip="false"> 电灯熄灭 </n-ellipsis>
+      <n-ellipsis :line-clamp="1" :tooltip="false">
+        {{ props.name }}
+      </n-ellipsis>
     </div>
   </div>
 </template>
