@@ -36,4 +36,29 @@ function get_json(url: string, param: object, callback: (res: any) => void) {
     });
 }
 
-export { get_img, get_json };
+function get_post_json(
+  url: string,
+  param: object,
+  callback: (res: any) => void
+) {
+  fetch(url, {
+    method: "POST",
+    mode: "cors",
+    body: qs.stringify(param),
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded",
+    },
+  })
+    .then((res: Response) => {
+      if (res.ok) {
+        res.json().then((json: object) => {
+          callback(json);
+        });
+      }
+    })
+    .catch((err) => {
+      console.log("There has benn a problem with fetch", err);
+    });
+}
+
+export { get_img, get_json, get_post_json };
