@@ -1,26 +1,31 @@
 <script setup lang="ts">
 import qs from "qs";
-import { Ref, ref } from "vue";
+import { Ref, ref, watchPostEffect } from "vue";
 import { get_img } from "../../composables/http";
-import { proxyImg_url } from "../../composables/base";
+import { ProxyImg_url } from "../../composables/base";
 
 const props = defineProps<{
   name: string;
   url: string;
+  id: number;
 }>();
 
 const bb: Ref<boolean> = ref(true);
 const source: Ref<string> = ref("");
-get_img(
-  proxyImg_url +
-    qs.stringify({
-      url: props.url,
-    }),
-  (param: string) => {
-    bb.value = false;
-    source.value = param;
-  }
-);
+function render() {
+  bb.value = true;
+  get_img(
+    ProxyImg_url +
+      qs.stringify({
+        url: props.url,
+      }),
+    (param: string) => {
+      bb.value = false;
+      source.value = param;
+    }
+  );
+}
+watchPostEffect(render);
 </script>
 <template>
   <div class="mv-box">

@@ -23,4 +23,10 @@ interface CategoryInfo {
   pgCount: number;
 }
 
-export type { ClassItem, MainClass, CategoryInfo, Movie };
+interface Category {
+  id: number;
+  name: string;
+  movieNum: string;
+}
+
+export type { ClassItem, MainClass, CategoryInfo, Movie, Category };

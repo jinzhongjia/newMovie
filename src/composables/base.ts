@@ -12,4 +12,12 @@ const ProxyImg_url = base_url + "/img/proxy?";
 
 const Category_url = base_url + "/category";
 
-export { base_url, MainCategory_url, ProxyImg_url, Category_url };
+const AllCategory_url = base_url + "/allCategory";
+
+export {
+  base_url,
+  MainCategory_url,
+  ProxyImg_url,
+  Category_url,
+  AllCategory_url,
+};
