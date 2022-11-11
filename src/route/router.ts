@@ -21,21 +21,14 @@ const routes: Array<RouteRecordRaw> = [
     ],
   },
   {
-    path: "/Search",
+    path: "/Search/:keyword",
     name: "search",
     component: () => import("@components/search/search.vue"),
     children: [
       {
-        path: ":keyword",
-        name: "search-keyword",
+        path: ":pageNum",
+        name: "search-page",
         component: () => import("@components/search/search.vue"),
-        children: [
-          {
-            path: ":pageNum",
-            name: "search-page",
-            component: () => import("@components/search/search.vue"),
-          },
-        ],
       },
     ],
   },
