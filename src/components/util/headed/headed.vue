@@ -10,7 +10,7 @@ const items = computed(() => {
     name: "首页",
     url: "/",
   });
-  for (let index = 0; index < store.AllCategory.length && index < 3; index++) {
+  for (let index = 0; index < store.AllCategory.length && index < 10; index++) {
     const ele = store.AllCategory[index];
     tmp.push({
       name: ele.name,
@@ -26,7 +26,11 @@ const items = computed(() => {
     <n-grid-item span="10 m:6 l:6">
       <n-grid cols="8" item-responsive responsive="screen">
         <n-grid-item span="3 l:1">
-          <Logo />
+          <!-- <router-link to="/"> -->
+          <a href="https://github.com/jinzhongjia/movie-getter" target="_blank">
+            <Logo />
+          </a>
+          <!-- </router-link> -->
         </n-grid-item>
         <n-grid-item span="2 l:5">
           <Class :items="items" />
