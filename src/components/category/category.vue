@@ -34,13 +34,17 @@ watchPostEffect(render);
   <n-grid cols="10" item-responsive responsive="screen">
     <n-grid-item span="0 m:2 l:2"> </n-grid-item>
 
-    <n-grid-item span="0 m:6 l:6">
+    <n-grid-item span="10 m:6 l:6">
       <bar :name="name" :id="Number(router.params.id)" />
       <Child :movies="movies" />
       <div class="pagination">
         <template v-if="page_count > 1">
           <n-space justify="center">
-            <n-pagination v-model:page="page" :page-count="page_count" />
+            <n-pagination
+              v-model:page="page"
+              :page-count="page_count"
+              :page-slot="7"
+            />
           </n-space>
         </template>
       </div>
@@ -52,5 +56,7 @@ watchPostEffect(render);
 .pagination {
   margin-top: 20px;
   margin-bottom: 40px;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 </style>

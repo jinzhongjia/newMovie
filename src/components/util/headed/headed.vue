@@ -10,15 +10,15 @@ const items: ClassItem[] = [
 <template>
   <n-grid cols="10" item-responsive responsive="screen">
     <n-grid-item span="0 m:2 l:2"></n-grid-item>
-    <n-grid-item span="0 m:6 l:6">
+    <n-grid-item span="10 m:6 l:6">
       <n-grid cols="8" item-responsive responsive="screen">
-        <n-grid-item span="1">
+        <n-grid-item span="4 l:1">
           <Logo />
         </n-grid-item>
-        <n-grid-item span="4">
+        <n-grid-item span="0 l:4">
           <Class :items="items" />
         </n-grid-item>
-        <n-grid-item span="3">
+        <n-grid-item span="4 l:3">
           <Searcher />
         </n-grid-item>
       </n-grid>

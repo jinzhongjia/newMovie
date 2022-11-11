@@ -38,7 +38,7 @@ get_json(MainCategory_url, {}, async (res: MainClass[]) => {
   <n-grid cols="10" item-responsive responsive="screen">
     <n-grid-item span="0 m:2 l:2"> </n-grid-item>
 
-    <n-grid-item span="0 m:6 l:6">
+    <n-grid-item span="10 m:6 l:6">
       <template v-for="data in dataItems">
         <bar :name="data.name" :id="data.category_id" />
         <Child :movies="data.movies" />
