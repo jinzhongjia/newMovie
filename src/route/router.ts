@@ -12,11 +12,32 @@ const routes: Array<RouteRecordRaw> = [
     path: "/Category/:id",
     name: "category",
     component: () => import("@components/category/category.vue"),
+    children: [
+      {
+        path: ":pageNum",
+        name: "category-page",
+        component: () => import("@components/category/category.vue"),
+      },
+    ],
   },
   {
     path: "/Search",
     name: "search",
     component: () => import("@components/search/search.vue"),
+    children: [
+      {
+        path: ":keyword",
+        name: "search-keyword",
+        component: () => import("@components/search/search.vue"),
+        children: [
+          {
+            path: ":pageNum",
+            name: "search-page",
+            component: () => import("@components/search/search.vue"),
+          },
+        ],
+      },
+    ],
   },
   {
     path: "/Video",
