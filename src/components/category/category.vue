@@ -7,16 +7,16 @@ import { ref, Ref, watchPostEffect } from "vue";
 import { useRoute } from "vue-router";
 
 const categoryStore = useCategoryStore();
-const router = useRoute();
+const route = useRoute();
 const page = ref(1);
 const page_count = ref(0);
 const movies: Ref<Movie[]> = ref([]);
 const name = ref("");
 
 function render() {
-  name.value = categoryStore.Id_to_name(Number(router.params.id as string));
+  name.value = categoryStore.Id_to_name(Number(route.params.id as string));
   get_post_json(
-    Category_url + "/" + router.params.id,
+    Category_url + "/" + route.params.id,
     {
       pg: page.value,
       num: 30,
@@ -35,7 +35,7 @@ watchPostEffect(render);
     <n-grid-item span="0 m:2 l:2"> </n-grid-item>
 
     <n-grid-item span="10 m:6 l:6">
-      <bar :name="name" :id="Number(router.params.id)" />
+      <bar :name="name" :id="Number(route.params.id)" />
       <Child :movies="movies" />
       <div class="pagination">
         <template v-if="page_count > 1">
