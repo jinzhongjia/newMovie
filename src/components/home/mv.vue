@@ -10,17 +10,17 @@ const props = defineProps<{
   id: number;
 }>();
 
-const bb: Ref<boolean> = ref(true);
+const ok: Ref<boolean> = ref(true);
 const source: Ref<string> = ref("");
 function render() {
-  bb.value = true;
+  ok.value = true;
   get_img(
     ProxyImg_url +
       qs.stringify({
         url: props.url,
       }),
     (param: string) => {
-      bb.value = false;
+      ok.value = false;
       source.value = param;
     }
   );
@@ -29,7 +29,7 @@ watchPostEffect(render);
 </script>
 <template>
   <div class="mv-box">
-    <n-spin :show="bb">
+    <n-spin :show="ok">
       <div class="post"></div>
     </n-spin>
     <div class="mv-bottom">
