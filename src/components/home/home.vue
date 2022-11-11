@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { get_json, get_post_json } from "../../composables/http";
 import { MainCategory_url, Category_url } from "../../composables/base";
-import { MainClass, CategoryInfo, Movie } from "../../composables/type";
+import { MainClass, MovieInfo, Movie } from "../../composables/type";
 import { HomeMovieNum } from "../../composables/config";
 import { ref, Ref } from "vue";
 
@@ -26,7 +26,7 @@ get_json(MainCategory_url, {}, async (res: MainClass[]) => {
         pg: 1,
         num: HomeMovieNum,
       },
-      (res: CategoryInfo) => {
+      (res: MovieInfo) => {
         tmp.movies = res.movies;
         dataItems.value.push(tmp);
       }

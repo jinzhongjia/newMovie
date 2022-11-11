@@ -3,7 +3,7 @@ import { Ref, ref, watchPostEffect } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import { get_post_json } from "../../composables/http";
 import { Search_url } from "../../composables/base";
-import { Movie, CategoryInfo } from "../../composables/type";
+import { Movie, MovieInfo } from "../../composables/type";
 
 const route = useRoute();
 const router = useRouter();
@@ -28,7 +28,7 @@ function render() {
       pg: page.value,
       num: 12,
     },
-    (res: CategoryInfo) => {
+    (res: MovieInfo) => {
       movies.value = res.movies;
       page_count.value = res.pgCount;
       if (page.value > res.pgCount) {

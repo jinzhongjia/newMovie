@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { get_post_json } from "../../composables/http";
 import { Category_url } from "../../composables/base";
-import { CategoryInfo, Movie } from "../../composables/type";
+import { MovieInfo, Movie } from "../../composables/type";
 import { useCategoryStore } from "../../composables/store";
 import { ref, Ref, watch, watchPostEffect } from "vue";
 import { useRoute, useRouter } from "vue-router";
@@ -28,7 +28,7 @@ function render() {
       pg: page.value,
       num: 30,
     },
-    (res: CategoryInfo) => {
+    (res: MovieInfo) => {
       page_count.value = res.pgCount;
       movies.value = res.movies;
       if (page.value > page_count.value) {

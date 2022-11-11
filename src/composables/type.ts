@@ -18,7 +18,7 @@ interface Movie {
   description: string;
 }
 
-interface CategoryInfo {
+interface MovieInfo {
   movies: Movie[];
   pgCount: number;
 }
@@ -29,4 +29,4 @@ interface Category {
   movieNum: string;
 }
 
-export type { ClassItem, MainClass, CategoryInfo, Movie, Category };
+export type { ClassItem, MainClass, MovieInfo, Movie, Category };
