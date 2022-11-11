@@ -29,11 +29,10 @@ async function get_json(
     mode: "cors",
   })
     .then((res: Response) => {
-      if (res.ok) {
-        res.json().then((json: object) => {
-          callback(json);
-        });
-      }
+      return res.json();
+    })
+    .then((json: object) => {
+      callback(json);
     })
     .catch((err) => {
       console.log("There has benn a problem with fetch", err);
@@ -54,11 +53,10 @@ async function get_post_json(
     },
   })
     .then((res: Response) => {
-      if (res.ok) {
-        res.json().then((json: object) => {
-          callback(json);
-        });
-      }
+      return res.json();
+    })
+    .then((json: object) => {
+      callback(json);
     })
     .catch((err) => {
       console.log("There has benn a problem with fetch", err);
