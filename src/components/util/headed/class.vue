@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ClassItem } from "../../../composables/type";
+
 const props = defineProps<{
   items: ClassItem[];
 }>();

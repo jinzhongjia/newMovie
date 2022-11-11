@@ -1,5 +1,5 @@
 import { defineStore } from "pinia";
-import { Ref, ref } from "vue";
+import { computed, Ref, ref } from "vue";
 import { get_json } from "./http";
 import { Category } from "./type";
 import { AllCategory_url } from "./base";
@@ -28,5 +28,9 @@ export const useCategoryStore = defineStore("counter", () => {
     return -1;
   }
 
-  return { Id_to_name, Name_to_id };
+  const AllCategory = computed(() => {
+    return categories.value;
+  });
+
+  return { Id_to_name, Name_to_id, AllCategory };
 });

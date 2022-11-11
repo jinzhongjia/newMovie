@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { NIcon } from "naive-ui";
-import { h } from "vue";
+import { h, ref, watch } from "vue";
 import { get_color, get_icon } from "../../composables/bar";
 import { MoreSharp } from "@vicons/material";
 import { useRoute } from "vue-router";
@@ -12,26 +12,36 @@ const props = defineProps<{
   id: number;
 }>();
 
-const color = get_color();
+const color = ref(get_color());
+const icon = ref(get_icon());
 
 const Icon = () =>
   h(
     NIcon,
     {
       size: 35,
-      color: color,
+      color: color.value,
     },
-    () => h(get_icon())
+    () => h(icon.value)
   );
+
 const More = () =>
   h(
     NIcon,
     {
       size: 30,
-      color: color,
+      color: color.value,
     },
     () => h(MoreSharp)
   );
+
+watch(
+  () => route.params.id,
+  () => {
+    color.value = get_color();
+    icon.value = get_icon();
+  }
+);
 </script>
 <template>
   <div class="bar-box">
