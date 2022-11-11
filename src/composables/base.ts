@@ -14,10 +14,13 @@ const Category_url = base_url + "/category";
 
 const AllCategory_url = base_url + "/allCategory";
 
+const Search_url = base_url + "/search";
+
 export {
   base_url,
   MainCategory_url,
   ProxyImg_url,
   Category_url,
   AllCategory_url,
+  Search_url,
 };
