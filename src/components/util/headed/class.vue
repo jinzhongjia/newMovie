@@ -6,9 +6,9 @@ const props = defineProps<{
 }>();
 </script>
 <template>
-  <n-grid cols="3 l:9" item-responsive responsive="screen">
+  <n-grid cols="1 l:9" item-responsive responsive="screen">
     <template v-for="item in props.items">
-      <n-grid-item span="1">
+      <n-grid-item :span="item.name == '首页' ? '1 m:1 l:1' : '0 m:1 l:1'">
         <div class="class-box">
           <router-link :to="item.url">
             <span class="class-name">{{ item.name }}</span>

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { NIcon } from "naive-ui";
-import { h, ref, watch } from "vue";
+import { h, ref, watch, shallowRef } from "vue";
 import { get_color, get_icon } from "../../composables/bar";
 import { MoreSharp } from "@vicons/material";
 import { useRoute } from "vue-router";
@@ -13,7 +13,7 @@ const props = defineProps<{
 }>();
 
 const color = ref(get_color());
-const icon = ref(get_icon());
+const icon = shallowRef(get_icon());
 
 const Icon = () =>
   h(
