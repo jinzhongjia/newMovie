@@ -3,12 +3,19 @@ import { get_post_json } from "../../composables/http";
 import { Category_url } from "../../composables/base";
 import { CategoryInfo, Movie } from "../../composables/type";
 import { useCategoryStore } from "../../composables/store";
-import { ref, Ref, watchPostEffect } from "vue";
-import { useRoute } from "vue-router";
+import { ref, Ref, watch, watchPostEffect } from "vue";
+import { useRoute, useRouter } from "vue-router";
 
 const categoryStore = useCategoryStore();
 const route = useRoute();
-const page = ref(1);
+const router = useRouter();
+const page: Ref<number> = ref(
+  route.params.pageNum
+    ? isNaN(Number(route.params.pageNum as string))
+      ? 1
+      : Number(route.params.pageNum as string)
+    : 1
+);
 const page_count = ref(0);
 const movies: Ref<Movie[]> = ref([]);
 const name = ref("");
@@ -24,11 +31,30 @@ function render() {
     (res: CategoryInfo) => {
       page_count.value = res.pgCount;
       movies.value = res.movies;
+      if (page.value > page_count.value) {
+        page.value = page_count.value;
+      }
     }
   );
 }
 
 watchPostEffect(render);
+watchPostEffect(() => {
+  router.push({
+    name: "category-page",
+    params: {
+      id: route.params.id,
+      pageNum: page.value,
+    },
+  });
+});
+
+watch(
+  () => route.params.id,
+  () => {
+    page.value = 1;
+  }
+);
 </script>
 <template>
   <n-grid cols="10" item-responsive responsive="screen">
