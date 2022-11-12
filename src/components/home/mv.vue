@@ -3,6 +3,7 @@ import qs from "qs";
 import { Ref, ref, watchPostEffect } from "vue";
 import { get_img } from "../../composables/http";
 import { ProxyImg_url } from "../../composables/base";
+import { useRouter } from "vue-router";
 
 const props = defineProps<{
   name: string;
@@ -12,6 +13,8 @@ const props = defineProps<{
 
 const ok: Ref<boolean> = ref(true);
 const source: Ref<string> = ref("");
+const router = useRouter();
+
 function render() {
   ok.value = true;
   get_img(
@@ -26,13 +29,22 @@ function render() {
   );
 }
 watchPostEffect(render);
+function go(id: number) {
+  router.push({
+    name: "video-num",
+    params: {
+      id: id,
+      num: 1,
+    },
+  });
+}
 </script>
 <template>
   <div class="mv-box">
     <n-spin :show="ok">
-      <div class="post"></div>
+      <div class="post" @click="go(props.id)"></div>
     </n-spin>
-    <div class="mv-bottom">
+    <div class="mv-bottom" @click="go(props.id)">
       <n-ellipsis :line-clamp="1" :tooltip="false">
         {{ props.name }}
       </n-ellipsis>
@@ -55,8 +67,10 @@ watchPostEffect(render);
   align-items: center;
   justify-content: center;
   background-image: v-bind("'url('+source+')'");
+  cursor: pointer;
 }
 .mv-bottom {
+  cursor: pointer;
   padding: 6px;
   border-bottom-right-radius: 10px;
   border-bottom-left-radius: 10px;

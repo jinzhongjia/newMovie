@@ -33,9 +33,16 @@ const routes: Array<RouteRecordRaw> = [
     ],
   },
   {
-    path: "/Video",
+    path: "/Video/:id",
     name: "video",
     component: () => import("@components/video/video.vue"),
+    children: [
+      {
+        path: ":num",
+        name: "video-num",
+        component: () => import("@components/video/video.vue"),
+      },
+    ],
   },
 ];
 

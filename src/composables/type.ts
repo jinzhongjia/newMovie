@@ -29,4 +29,14 @@ interface Category {
   movieNum: string;
 }
 
-export type { ClassItem, MainClass, MovieInfo, Movie, Category };
+interface Play extends Movie {
+  url: string;
+}
+
+interface PlayNum {
+  id: number;
+  name: string;
+  url: string;
+}
+
+export type { ClassItem, MainClass, MovieInfo, Movie, Category, Play, PlayNum };

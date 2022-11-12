@@ -16,6 +16,8 @@ const AllCategory_url = base_url + "/allCategory";
 
 const Search_url = base_url + "/search";
 
+const Play_url = base_url + "/play";
+
 export {
   base_url,
   MainCategory_url,
@@ -23,4 +25,5 @@ export {
   Category_url,
   AllCategory_url,
   Search_url,
+  Play_url,
 };

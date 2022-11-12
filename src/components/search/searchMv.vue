@@ -34,6 +34,7 @@ const ok: Ref<boolean> = ref(true);
 </template>
 <style scoped>
 .img {
+  cursor: pointer;
   width: 130px;
   padding-bottom: 148%;
   background-image: v-bind("'url('+source+')'");
