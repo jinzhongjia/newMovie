@@ -20,14 +20,6 @@ const id = ref(route.params.id);
 const num = computed(() => {
   return isNaN(Number(route.params.num)) ? 0 : Number(route.params.num) - 1;
 });
-
-watchPostEffect(() => {
-  get_json(Play_url + "/" + id.value, {}, (res: Play) => {
-    play_info.value = res;
-    play_nums.value = Handle_play_url(res.url);
-    ok.value = true;
-  });
-});
 function go(goal: number) {
   router.push({
     name: "video-num",
@@ -37,6 +29,15 @@ function go(goal: number) {
     },
   });
 }
+
+watchPostEffect(() => {
+  get_json(Play_url + "/" + id.value, {}, (res: Play) => {
+    play_info.value = res;
+    play_nums.value = Handle_play_url(res.url);
+    ok.value = true;
+  });
+});
+
 watchPostEffect(() => {
   go(num.value + 1);
 });
