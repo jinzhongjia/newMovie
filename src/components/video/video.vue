@@ -94,7 +94,7 @@ onMounted(() => {
             <template #action>
               <n-grid cols="12" item-responsive responsive="screen">
                 <template v-for="play_num in play_nums">
-                  <n-grid-item span="3 m:1 l:1">
+                  <n-grid-item span="3 m:1 l:1" v-if="play_num.url != ''">
                     <div class="episode">
                       <n-button @click="go(play_num.id)">
                         {{ play_num.name }}
