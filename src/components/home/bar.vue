@@ -61,7 +61,7 @@ watch(
       </n-space>
 
       <template v-if="route.name == 'home'">
-        <router-link :to="'/Category/' + props.id">
+        <router-link :to="'/Category/' + props.id + '/1'">
           <More />
         </router-link>
       </template>
