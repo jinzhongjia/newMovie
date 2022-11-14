@@ -14,7 +14,7 @@ const items = computed(() => {
     const ele = store.AllCategory[index];
     tmp.push({
       name: ele.name,
-      url: "/category/" + ele.id,
+      url: "/category/" + ele.id + "/1",
     });
   }
   return tmp;
