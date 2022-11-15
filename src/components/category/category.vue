@@ -32,7 +32,7 @@ function render() {
       page_count.value = res.pgCount;
       movies.value = res.movies;
       if (page.value > page_count.value) {
-        page.value = page_count.value;
+        page.value = page_count.value > 1 ? page_count.value : 1;
       }
     }
   );
@@ -40,13 +40,15 @@ function render() {
 
 watchPostEffect(render);
 watchPostEffect(() => {
-  router.push({
-    name: "category-page",
-    params: {
-      id: route.params.id,
-      pageNum: page.value,
-    },
-  });
+  if (page.value > 0) {
+    router.push({
+      name: "category-page",
+      params: {
+        id: route.params.id,
+        pageNum: page.value,
+      },
+    });
+  }
 });
 
 watch(
