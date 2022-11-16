@@ -25,14 +25,14 @@ const items = computed(() => {
     <n-grid-item span="0 m:2 l:2"></n-grid-item>
     <n-grid-item span="10 m:6 l:6">
       <n-grid cols="8" item-responsive responsive="screen">
-        <n-grid-item span="3 l:1">
+        <n-grid-item span="3 s:2 l:1">
           <!-- <router-link to="/"> -->
           <a href="https://github.com/jinzhongjia/movie-getter" target="_blank">
             <Logo />
           </a>
           <!-- </router-link> -->
         </n-grid-item>
-        <n-grid-item span="2 l:5">
+        <n-grid-item span="2 s:3 l:5">
           <Class :items="items" />
         </n-grid-item>
         <n-grid-item span="3 l:2">
