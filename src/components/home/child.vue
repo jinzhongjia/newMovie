@@ -6,7 +6,7 @@ const props = defineProps<{
 </script>
 <template>
   <div class="child-box">
-    <n-grid cols="3 l:6" item-responsive responsive="screen">
+    <n-grid cols="3 s:6 l:6" item-responsive responsive="screen">
       <template v-for="movie in props.movies">
         <n-grid-item span="1">
           <Mv :name="movie.name" :url="movie.pic" :id="movie.id" />
