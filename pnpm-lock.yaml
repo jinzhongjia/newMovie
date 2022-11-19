@@ -9,7 +9,7 @@ specifiers:
   dplayer: ^1.27.0
   hls.js: ^1.2.7
   naive-ui: ^2.33.5
-  pinia: ^2.0.23
+  pinia: ^2.0.24
   qs: ^6.11.0
   typescript: ^4.9.3
   unplugin-auto-import: ^0.11.4
@@ -33,7 +33,7 @@ devDependencies:
   dplayer: 1.27.0
   hls.js: 1.2.7
   naive-ui: 2.33.5_vue@3.2.45
-  pinia: 2.0.23_mgnvym7yiazkylwwogi5r767ue
+  pinia: 2.0.24_mgnvym7yiazkylwwogi5r767ue
   typescript: 4.9.3
   unplugin-auto-import: 0.11.4
   unplugin-vue-components: 0.22.9_vue@3.2.45
@@ -935,8 +935,8 @@ packages:
     engines: {node: '>=8.6'}
     dev: true
 
-  /pinia/2.0.23_mgnvym7yiazkylwwogi5r767ue:
-    resolution: {integrity: sha512-N15hFf4o5STrxpNrib1IEb1GOArvPYf1zPvQVRGOO1G1d74Ak0J0lVyalX/SmrzdT4Q0nlEFjbURsmBmIGUR5Q==}
+  /pinia/2.0.24_mgnvym7yiazkylwwogi5r767ue:
+    resolution: {integrity: sha512-DDLd4Iphyc+6PYYYbx7jkb6WP9gecgu9bz9huyB5rb7CdJI3DhzYiZI+/Ih8MLewRrP9DSpslF/BgSNrJtZU7A==}
     peerDependencies:
       '@vue/composition-api': ^1.4.0
       typescript: '>=4.4.4'
