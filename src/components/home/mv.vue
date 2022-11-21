@@ -74,7 +74,7 @@ function go(id: number) {
   padding: 6px;
   border-bottom-right-radius: 10px;
   border-bottom-left-radius: 10px;
-  background-color: #f5f5f5;
+  background-color: inherit;
   text-align: center;
 }
 </style>
