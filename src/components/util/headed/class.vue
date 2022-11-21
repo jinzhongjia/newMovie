@@ -28,6 +28,6 @@ const props = defineProps<{
 }
 .class-box a {
   text-decoration: none;
-  color: #333;
+  color: inherit;
 }
 </style>
