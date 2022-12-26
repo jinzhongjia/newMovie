@@ -39,9 +39,20 @@ get_json(MainCategory_url, {}, async (res: MainClass[]) => {
     <n-grid-item span="0 m:2 l:2"> </n-grid-item>
 
     <n-grid-item span="10 m:6 l:6">
-      <template v-for="data in dataItems">
-        <bar :name="data.name" :id="data.category_id" />
-        <Child :movies="data.movies" />
+      <template v-if="dataItems.length > 0">
+        <template v-for="data in dataItems">
+          <bar :name="data.name" :id="data.category_id" />
+          <Child :movies="data.movies" />
+        </template>
+      </template>
+      <template v-else>
+        <div style="height: 20vh"></div>
+        <n-result
+          status="404"
+          title="无分类"
+          description="抱歉，当前站点似乎并不存在分类！"
+        >
+        </n-result>
       </template>
     </n-grid-item>
     <n-grid-item span="0 m:2 l:2"> </n-grid-item>
