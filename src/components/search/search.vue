@@ -7,6 +7,7 @@ import { Movie, MovieInfo } from "../../composables/type";
 
 const route = useRoute();
 const router = useRouter();
+const status = ref(true);
 
 const page_count = ref(0);
 const movies: Ref<Movie[]> = ref([]);
@@ -34,6 +35,7 @@ function render() {
       if (page.value > res.pgCount) {
         page.value = res.pgCount;
       }
+      status.value = false;
     }
   );
 }
@@ -57,18 +59,28 @@ watchPostEffect(() => {
     <n-grid-item span="10 m:6 l:6">
       <n-card hoverable>
         <template #header>《{{ keywords }}》搜索结果</template>
-        <n-list>
-          <template v-for="movie in movies">
-            <searchItem
-              :name="movie.name"
-              :pic="movie.pic"
-              :id="movie.id"
-              :desc="movie.description"
-              :actor="movie.actor"
-              :director="movie.director"
-            />
-          </template>
-        </n-list>
+        <template v-if="movies.length > 0 && !status">
+          <n-list>
+            <template v-for="movie in movies">
+              <searchItem
+                :name="movie.name"
+                :pic="movie.pic"
+                :id="movie.id"
+                :desc="movie.description"
+                :actor="movie.actor"
+                :director="movie.director"
+              />
+            </template>
+          </n-list>
+        </template>
+        <template v-else-if="movies.length == 0 && !status">
+          <n-result
+            status="404"
+            title="无搜索结果"
+            description="换个搜索的关键词试试吧"
+          >
+          </n-result>
+        </template>
       </n-card>
       <div class="pagination">
         <template v-if="page_count > 1">
