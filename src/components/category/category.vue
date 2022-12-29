@@ -81,6 +81,7 @@ watch(
         </div>
       </template>
       <template v-else-if="movies.length == 0 && !status">
+        <div style="height: 20vh"></div>
         <n-result
           status="404"
           title="分类不存在"
