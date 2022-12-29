@@ -19,6 +19,7 @@ const page: Ref<number> = ref(
 const page_count = ref(0);
 const movies: Ref<Movie[]> = ref([]);
 const name = ref("");
+const status = ref(true);
 
 function render() {
   name.value = categoryStore.Id_to_name(Number(route.params.id as string));
@@ -34,6 +35,7 @@ function render() {
       if (page.value > page_count.value) {
         page.value = page_count.value > 1 ? page_count.value : 1;
       }
+      status.value = false;
     }
   );
 }
@@ -63,19 +65,29 @@ watch(
     <n-grid-item span="0 m:2 l:2"> </n-grid-item>
 
     <n-grid-item span="10 m:6 l:6">
-      <bar :name="name" :id="Number(route.params.id)" />
-      <Child :movies="movies" />
-      <div class="pagination">
-        <template v-if="page_count > 1">
-          <n-space justify="center">
-            <n-pagination
-              v-model:page="page"
-              :page-count="page_count"
-              :page-slot="7"
-            />
-          </n-space>
-        </template>
-      </div>
+      <template v-if="movies.length > 0 && !status">
+        <bar :name="name" :id="Number(route.params.id)" />
+        <Child :movies="movies" />
+        <div class="pagination">
+          <template v-if="page_count > 1">
+            <n-space justify="center">
+              <n-pagination
+                v-model:page="page"
+                :page-count="page_count"
+                :page-slot="7"
+              />
+            </n-space>
+          </template>
+        </div>
+      </template>
+      <template v-else-if="movies.length == 0 && !status">
+        <n-result
+          status="404"
+          title="分类不存在"
+          description="你所寻找的分类不存在，去别的地方找找吧"
+        >
+        </n-result>
+      </template>
     </n-grid-item>
     <n-grid-item span="0 m:2 l:2"> </n-grid-item>
   </n-grid>
